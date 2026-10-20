@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Бог войны: артиллерия и ракетные войска</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--pg:#f1ece2;--pg2:#e8e1d3;--card:#faf7f0;--tx:#1b1a17;--mut:#625d52;--ln:#d5ccb9;--brass:#9a6f2c;--olive:#4d5a35;--navbg:rgba(241,236,226,.88);--dk:#141310;--dk2:#1d1b16;--dtx:#efe8d8;--dmut:#a89f8c;--dbrass:#d4a24c;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--pg:#171510;--pg2:#1d1a14;--card:#221f18;--tx:#efe8d8;--mut:#a89f8c;--ln:#38332a;--brass:#d4a24c;--olive:#8fa065;--navbg:rgba(23,21,16,.88);color-scheme:dark}}
+:root[data-theme="dark"]{--pg:#171510;--pg2:#1d1a14;--card:#221f18;--tx:#efe8d8;--mut:#a89f8c;--ln:#38332a;--brass:#d4a24c;--olive:#8fa065;--navbg:rgba(23,21,16,.88);color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(60px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--pg);color:var(--tx);font:17px/1.65 Inter,Arial,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navbg);z-index:40}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;margin:0;line-height:1}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+#pb{position:fixed;left:0;top:0;height:3px;width:0;background:var(--brass);z-index:60}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--navbg);backdrop-filter:blur(12px);border-bottom:1px solid var(--ln)}
+nav .w{display:flex;gap:24px;align-items:center;height:56px;overflow-x:auto;white-space:nowrap}
+nav b{font-family:"Cormorant Garamond",serif;font-size:22px;margin-right:auto}nav a{color:var(--mut);text-decoration:none}nav a:hover{color:var(--brass)}
+.dark{background:var(--dk);color:var(--dtx)}.dark .mut{color:var(--dmut)}
+.hero{position:relative;min-height:94vh;display:flex;align-items:center;overflow:hidden;background:radial-gradient(60% 70% at 72% 45%,#4a3a1c 0%,transparent 62%),radial-gradient(40% 50% at 8% 95%,#27331f 0%,transparent 70%),var(--dk);color:var(--dtx)}
+.hero .w{display:grid;grid-template-columns:1.15fr .85fr;gap:10px;align-items:center;width:100%;padding-top:48px;padding-bottom:48px}
+.hero h1{font-size:clamp(76px,15vw,200px);letter-spacing:-.02em;text-transform:uppercase}
+.hero h1 span{display:block;overflow:hidden}.hero h1 i{display:inline-block;font-style:italic;color:var(--dbrass);font-weight:500;animation:up 1.1s cubic-bezier(.2,.8,.2,1) both}.hero h1 span:first-child i{animation-delay:.1s}.hero h1 span:last-child i{animation-delay:.3s}
+@keyframes up{from{transform:translateY(105%)}to{transform:none}}
+.bluf{margin-top:30px;border:1px solid rgba(212,162,76,.4);background:rgba(20,19,16,.55);backdrop-filter:blur(8px);border-radius:14px;padding:20px 24px;max-width:520px}
+.bluf .mono{color:var(--dbrass);display:block;margin-bottom:6px}.bluf p{margin:0;color:#d6cdb9}
+.stage{position:relative}.stage:after{content:"";position:absolute;left:12%;right:12%;bottom:4%;height:34px;background:radial-gradient(ellipse at center,rgba(0,0,0,.65),transparent 70%);filter:blur(4px)}
+#cv{width:100%;height:560px;cursor:grab;touch-action:pan-y;display:block;position:relative;z-index:1}
+.hint{text-align:center;color:var(--dmut);margin-top:8px}
+.mq{overflow:hidden;white-space:nowrap;background:var(--brass);color:#14110c;padding:14px 0;font-family:"Cormorant Garamond",serif;font-size:34px;font-weight:700}
+.mq div{display:inline-flex;gap:46px;animation:mq 38s linear infinite}@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:110px 0}section.alt{background:var(--pg2)}
+.num{color:var(--brass);display:block;margin-bottom:14px}
+h2{font-size:clamp(38px,5.6vw,72px);max-width:880px;margin-bottom:18px}h2 em{color:var(--brass);font-weight:500}
+.lead{color:var(--mut);max-width:640px;margin:0 0 46px}
+.bento{display:grid;gap:16px;grid-template-columns:repeat(6,1fr)}
+.t{background:var(--card);border:1px solid var(--ln);border-radius:24px;padding:28px;transition:transform .3s,border-color .3s;grid-column:span 2}
+.t:hover{transform:translateY(-4px);border-color:var(--brass)}.t.s3{grid-column:span 3}.t.s4{grid-column:span 4}
+.t h3{font-size:32px;margin-bottom:10px}.t p{margin:0;color:var(--mut);font-size:15px}.t svg{width:46px;height:46px;margin-bottom:18px;stroke:var(--brass);fill:none;stroke-width:1.6}
+.t.k{background:var(--dk);color:var(--dtx);border-color:var(--dk)}.t.k p{color:var(--dmut)}.t.k h3{color:var(--dbrass)}
+.big{font-family:"Cormorant Garamond",serif;font-size:clamp(60px,9vw,120px);font-weight:700;line-height:.9;color:var(--brass)}
+.anat{display:grid;gap:12px;max-width:760px}
+.anat button{display:flex;gap:18px;align-items:baseline;text-align:left;background:var(--card);border:1px solid var(--ln);border-radius:18px;color:var(--tx);padding:20px 24px;font:inherit;cursor:pointer;transition:.25s}
+.anat button.on,.anat button:hover{border-color:var(--brass);background:var(--pg)}.anat b{font-family:"Cormorant Garamond",serif;font-size:26px;min-width:230px;font-weight:700}.anat small{color:var(--mut);font-size:14px}
+.tg{display:flex;gap:10px;margin-bottom:14px}.tg button{background:none;color:var(--tx);border:1px solid var(--ln);border-radius:999px;padding:9px 22px;cursor:pointer;font:inherit}.tg button.on{background:var(--tx);color:var(--pg)}
+canvas.tr{width:100%;height:320px;background:var(--dk);border-radius:24px}
+.menu{display:grid;gap:0;max-width:900px}.mr{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--ln)}
+.mr h3{font-size:34px}.mr .dots{border-bottom:2px dotted var(--ln);transform:translateY(-6px)}.mr em{font-style:normal;font-family:"Cormorant Garamond",serif;font-size:34px;color:var(--brass);font-weight:700}
+.mr p{grid-column:1/4;margin:-6px 0 0;color:var(--mut);font-size:15px}
+.race{display:grid;gap:18px;margin-top:18px}.race div{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center}
+.race i{display:block;height:44px;border-radius:12px;width:0;transition:width 1.6s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;padding-left:16px;font-weight:600;color:#14110c;white-space:nowrap}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));counter-reset:s;margin-bottom:48px}
+.steps div{border-top:2px solid var(--dbrass);padding-top:14px}.steps div:before{counter-increment:s;content:"0" counter(s);font-family:"JetBrains Mono",monospace;color:var(--dbrass)}.steps b{display:block;font-family:"Cormorant Garamond",serif;font-size:28px;margin:6px 0}.steps p{margin:0;color:var(--dmut);font-size:14px}
+.note{border-left:2px solid var(--brass);padding:4px 18px;color:var(--mut);margin-top:30px;font-size:14px;max-width:720px}.dark .note{color:var(--dmut)}
+.j{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.j div{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:22px}.j b{font-family:"Cormorant Garamond",serif;font-size:24px;display:block}.j p{margin:6px 0 0;color:var(--mut);font-size:14px}
+footer{padding:46px 0 64px;color:var(--mut);font-size:13px;border-top:1px solid var(--ln)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s,transform .9s}.rv.in{opacity:1;transform:none}
+@media(max-width:860px){.hero .w{grid-template-columns:1fr}#cv{height:400px}.t,.t.s3,.t.s4{grid-column:span 6}.anat b{min-width:0}.anat button{flex-direction:column;gap:4px}.race div{grid-template-columns:1fr}section{padding:76px 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="pb"></div>
+<nav><div class="w"><b>Бог войны</b><a href="#shells">Снаряды</a><a href="#anatomy">Устройство</a><a href="#flight">Полёт</a><a href="#systems">Комплексы</a><a href="#chain">Цепочка огня</a><a href="#src">Источники</a></div></nav>
+
+<header class="hero"><div class="w">
+<div><div class="mono" style="color:var(--dbrass);margin-bottom:22px">Доклад № 01 · Открытые источники · Российская сторона</div>
+<h1><span><i>Бог</i></span><span><i>войны</i></span></h1>
+<div class="bluf"><span class="mono">Главное</span><p>По оценке RUSI, связка орудия с дроном-наводчиком сокращает контрбатарейный удар примерно с 30 до 3–5 минут. Скорость цепочки огня решает не меньше, чем калибр.</p></div></div>
+<div class="stage"><canvas id="cv" aria-label="Интерактивная 3D-модель артиллерийского снаряда, вращается мышью"></canvas><div class="hint mono">Потяните, чтобы повернуть · схематичная модель</div></div>
+</div></header>
+<div class="mq" aria-hidden="true"><div><span>Артиллерия</span><span>·</span><span>Ракетные войска</span><span>·</span><span>Снаряды</span><span>·</span><span>Цепочка огня</span><span>·</span><span>Артиллерия</span><span>·</span><span>Ракетные войска</span><span>·</span><span>Снаряды</span><span>·</span><span>Цепочка огня</span><span>·</span></div></div>
+
+<section id="shells"><div class="w"><span class="mono num">01 / Снаряды</span><h2>Четыре семейства снарядов: от <em>фугасных</em> до корректируемых</h2><p class="lead">Выстрел состоит из снаряда, взрывателя и метательного заряда. Тип боеприпаса определяет, чем именно будет поражена цель.</p>
+<div class="bento rv">
+<div class="t s4 k"><svg viewBox="0 0 44 44" style="stroke:var(--dbrass)"><path d="M22 4l5 10v22a5 5 0 0 1-10 0V14z"/><path d="M17 20h10"/></svg><h3>Осколочно-фугасный</h3><p>Основной тип. Стальной корпус с разрывным зарядом (ТНТ, составы на основе гексогена) поражает осколками и ударной волной.</p></div>
+<div class="t"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="6"/><path d="M22 2v8M22 34v8M2 22h8M34 22h8"/></svg><h3>Корректируемый</h3><p>«Краснополь»: лазерная головка и рули доводят снаряд до подсвеченной цели.</p></div>
+<div class="t"><svg viewBox="0 0 44 44"><path d="M22 4l5 10v22a5 5 0 0 1-10 0V14z"/><path d="M12 38l-4 4M32 38l4 4"/></svg><h3>Дальнобойный</h3><p>Донный газогенератор уменьшает сопротивление, активно-ракетные несут свой двигатель.</p></div>
+<div class="t s4"><svg viewBox="0 0 44 44"><path d="M6 36c8-4 8-14 16-14s8 10 16 14"/><circle cx="14" cy="16" r="2"/><circle cx="22" cy="10" r="2"/><circle cx="30" cy="16" r="2"/></svg><h3>Специальный</h3><p>Дымовые скрывают позиции, осветительные подсвечивают местность ночью, кассетные разбрасывают малые боеприпасы.</p></div>
+</div>
+<div class="note">Классификация по Britannica и справочникам производителей боеприпасов. Бронебойные снаряды у пушек отдельно: прочный наконечник, сердечник из стали или вольфрамокарбида.</div></div></section>
+
+<section id="anatomy" class="alt"><div class="w"><span class="mono num">02 / Устройство</span><h2>Мозг снаряда — <em>взрыватель</em>, сила — заряд</h2><p class="lead">Нажмите на элемент: он подсветится на 3D-модели в начале страницы.</p>
+<div class="anat rv" id="an">
+<button data-k="fuze"><b>Взрыватель</b><small>Решает, когда сработает разрывной заряд: ударный, дистанционный, неконтактный.</small></button>
+<button data-k="body"><b>Корпус и заряд</b><small>Толстая сталь выдерживает перегрузку в стволе, внутри взрывчатое вещество.</small></button>
+<button data-k="band"><b>Ведущий поясок</b><small>Врезается в нарезы, раскручивает снаряд и уплотняет канал ствола.</small></button>
+<button data-k="base"><b>Донная часть</b><small>Сюда давят пороховые газы метательного заряда. Тут может стоять газогенератор.</small></button>
+</div></div></section>
+
+<section id="flight" class="dark"><div class="w"><span class="mono num" style="color:var(--dbrass)">03 / Полёт</span><h2>Корректируемый снаряд исправляет дугу на <em style="color:var(--dbrass)">последних секундах</em></h2><p class="lead mut">Обычный снаряд летит по баллистической дуге. Корректируемый на конечном участке ловит отражённый лазерный сигнал и подправляет курс рулями.</p>
+<div class="tg"><button class="on" data-m="0" style="color:var(--dtx);border-color:#38332a">Обычный</button><button data-m="1" style="color:var(--dtx);border-color:#38332a">Корректируемый</button></div>
+<canvas class="tr" id="tr" aria-label="Анимация траектории снаряда"></canvas>
+<div class="note">Ограничение: цель нужно видеть и подсвечивать, наблюдатель работает близко к фронту. Схема условная, без масштаба.</div></div></section>
+
+<section id="systems"><div class="w"><span class="mono num">04 / Комплексы</span><h2>Заявленная дальность гаубиц: от <em>17</em> до 80 километров</h2><p class="lead">Цифры из открытых публикаций, а не независимых испытаний.</p>
+<div class="menu rv">
+<div class="mr"><h3>2С3 «Акация»</h3><span class="dots"></span><em>17 км</em><p>Самоходная гаубица 152 мм.</p></div>
+<div class="mr"><h3>2С19 «Мста-С»</h3><span class="dots"></span><em>24 км</em><p>Модернизированная «Мста-СМ2» по оценке Business Insider бьёт примерно на 40 км при темпе до 10 выстрелов в минуту.</p></div>
+<div class="mr"><h3>«Мста-С» + «Краснополь»</h3><span class="dots"></span><em>до 30 км</em><p>Корректируемый снаряд с лазерным наведением.</p></div>
+<div class="mr"><h3>2С35 «Коалиция-СВ»*</h3><span class="dots"></span><em>70–80 км</em><p>*Цифра по «Ростех» в публикациях, независимо не подтверждена.</p></div>
+<div class="mr"><h3>«Торнадо-С», «Смерч»</h3><span class="dots"></span><em>РСЗО</em><p>Залп ракет по площади; «Торнадо-С» использует управляемые ракеты.</p></div>
+<div class="mr"><h3>«Искандер-М»</h3><span class="dots"></span><em>ТРК</em><p>Тактический ракетный комплекс для ударов по объектам в тылу. Подробностей в проверенных источниках нет.</p></div>
+</div></div></section>
+
+<section id="chain" class="dark" style="background:radial-gradient(50% 60% at 85% 20%,#3a2e16 0%,transparent 65%),var(--dk)"><div class="w"><span class="mono num" style="color:var(--dbrass)">05 / Цепочка огня</span><h2>Скорость цепочки огня решает <em style="color:var(--dbrass)">больше, чем калибр</em></h2>
+<div class="steps rv" style="margin-top:40px"><div><b>Разведка</b><p>Дроны, РЛС, РЭБ находят цель.</p></div><div><b>Расчёт</b><p>Система считает данные стрельбы: дальность, ветер, износ ствола.</p></div><div><b>Огонь</b><p>Выстрел и смена позиции, чтобы уйти от ответа.</p></div><div><b>Коррекция</b><p>Наблюдатель видит разрывы или подсвечивает цель.</p></div><div><b>Оценка</b><p>Дрон фиксирует результат.</p></div></div>
+<div class="race" id="race"><div><span class="mono" style="color:var(--dmut)">Без дрона</span><i data-w="100" style="background:#8a7a5c">около 30 минут</i></div><div><span class="mono" style="color:var(--dmut)">С дроном</span><i data-w="14" style="background:var(--dbrass)">3–5 мин</i></div></div>
+<div class="note">Оценка британского центра RUSI по интервью с украинскими военными (2022). С тех пор данные могли измениться.</div></div></section>
+
+<section id="src" class="alt"><div class="w"><span class="mono num">06 / Источники</span><h2>На чём построен <em>доклад</em></h2><div class="j rv" style="margin-top:34px">
+<div><b>Britannica</b><p>Статья «shell»: устройство артиллерийского снаряда.</p></div>
+<div><b>BAE Systems</b><p>105-мм боеприпасы: газогенератор, дальность, метательные заряды.</p></div>
+<div><b>Wikipedia · M107</b><p>Разборные выстрелы, состав боевого заряда.</p></div>
+<div><b>RUSI</b><p>Роль артиллерии в войне России и Украины; исследование Watling и Reynolds.</p></div>
+<div><b>Российские СМИ, Минобороны РФ</b><p>«Краснополь», «Торнадо-С», «Коалиция-СВ»: заявления стороны.</p></div>
+<div><b>ГУР Минобороны Украины</b><p>«Краснополь-М2», «Ланцет»: заявления стороны.</p></div></div>
+<div class="note">Обзор открытых данных, а не руководство по применению оружия. Обе стороны публикуют цифры, которые трудно проверить независимо.</div></div></section>
+<footer><div class="w">Дизайн опирается на тренды 2026 года: бенто-сетки, крупная типографика, мягкая 3D, тактильная зернистость. Структура изложения: главное в начале, один тезис на раздел (принципы военных брифингов, RAND 2024).</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+var pb=document.getElementById('pb');addEventListener('scroll',function(){var h=document.documentElement;pb.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(n){io.observe(n)});
+var rio=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.querySelectorAll('i').forEach(function(b){b.style.width=b.dataset.w+'%'})})},{threshold:.4});
+rio.observe(document.getElementById('race'));
+var cv=document.getElementById('cv'),parts={};
+if(window.THREE){try{
+var R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true}),S=new THREE.Scene(),C=new THREE.PerspectiveCamera(32,1,.1,100);C.position.set(0,0,10);
+S.add(new THREE.AmbientLight(0xfff1d6,.5));
+var k=new THREE.DirectionalLight(0xffe2ae,1.4);k.position.set(5,6,6);S.add(k);
+var f=new THREE.DirectionalLight(0x8fa065,.5);f.position.set(-6,-1,3);S.add(f);
+var rim=new THREE.DirectionalLight(0xd4a24c,.9);rim.position.set(-3,4,-6);S.add(rim);
+var G=new THREE.Group();S.add(G);
+function m(c,me,ro){return new THREE.MeshStandardMaterial({color:c,metalness:me,roughness:ro})}
+var pr=[[0,0],[.78,0],[.8,.1],[.8,2.6],[.74,3.3],[.55,4.1],[.3,4.6],[.1,4.8],[0,4.82]].map(function(p){return new THREE.Vector2(p[0],p[1])});
+parts.body=new THREE.Mesh(new THREE.LatheGeometry(pr,72),m(0x59673a,.55,.38));
+parts.band=new THREE.Mesh(new THREE.TorusGeometry(.82,.09,16,72),m(0xc28a3d,.95,.22));parts.band.rotation.x=Math.PI/2;parts.band.position.y=.55;
+parts.fuze=new THREE.Mesh(new THREE.CylinderGeometry(.06,.22,.5,32),m(0xd9d2bf,.9,.2));parts.fuze.position.y=4.75;
+parts.base=new THREE.Mesh(new THREE.CylinderGeometry(.7,.78,.12,48),m(0x8a8576,.8,.35));parts.base.position.y=.04;
+for(var n in parts)G.add(parts[n]);
+G.position.y=-2.4;G.rotation.z=.32;
+var drag=false,px=0,ry=0;
+cv.addEventListener('pointerdown',function(e){drag=true;px=e.clientX;cv.setPointerCapture(e.pointerId)});
+cv.addEventListener('pointerup',function(){drag=false});
+cv.addEventListener('pointermove',function(e){if(drag){ry+=(e.clientX-px)*.01;px=e.clientX}});
+function rs(){var w=cv.clientWidth,h=cv.clientHeight;R.setPixelRatio(Math.min(devicePixelRatio,2));R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}rs();addEventListener('resize',rs);
+(function lp(){requestAnimationFrame(lp);if(!drag)ry+=.007;G.rotation.y=ry;G.position.y=-2.4+Math.sin(Date.now()/1400)*.08;R.render(S,C)})();
+}catch(e){cv.style.display='none'}}else{cv.style.display='none'}
+var bt=document.querySelectorAll('#an button');
+bt.forEach(function(b){b.addEventListener('click',function(){bt.forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+Object.keys(parts).forEach(function(n){var mm=parts[n].material;mm.emissive=new THREE.Color(n===b.dataset.k?0xd4a24c:0x000000);mm.emissiveIntensity=n===b.dataset.k?.8:0});
+cv.scrollIntoView({behavior:'smooth',block:'center'})})});
+var tc=document.getElementById('tr'),x=tc.getContext('2d'),mode=0,t0=performance.now();
+function fit(){tc.width=tc.clientWidth*devicePixelRatio;tc.height=tc.clientHeight*devicePixelRatio}fit();addEventListener('resize',fit);
+document.querySelectorAll('.tg button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.tg button').forEach(function(z){z.classList.remove('on');z.style.background='none'});b.classList.add('on');b.style.background='';mode=+b.dataset.m;t0=performance.now()})});
+function fr(now){requestAnimationFrame(fr);var W=tc.width,H=tc.height,s=devicePixelRatio,p=((now-t0)%4200)/3000;if(p>1)p=1;
+x.clearRect(0,0,W,H);var gy=H-44*s,x0=60*s,x1=W-90*s,tx=x1+(mode?0:-36*s),top=H*.2;
+x.strokeStyle='#38332a';x.lineWidth=2*s;x.beginPath();x.moveTo(0,gy);x.lineTo(W,gy);x.stroke();
+x.fillStyle='#a89f8c';x.font=(13*s)+'px "JetBrains Mono",monospace';x.fillText('ОРУДИЕ',x0-30*s,gy+24*s);x.fillText('ЦЕЛЬ',x1-18*s,gy+24*s);
+x.fillStyle='#8fa065';x.fillRect(x1-9*s,gy-16*s,18*s,16*s);
+function pt(u){return [x0+(tx-x0)*u,gy-4*(gy-top)*u*(1-u)]}
+x.strokeStyle='rgba(212,162,76,.3)';x.setLineDash([8*s,8*s]);x.beginPath();for(var u=0;u<=1;u+=.02){var q=pt(u);u?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1])}x.stroke();x.setLineDash([]);
+var u=p,q=pt(u);
+if(mode&&u>.62){var kk=(u-.62)/.38,qq=pt(.62+.38*kk);q=[qq[0]+(x1-qq[0])*kk*.9,qq[1]];
+x.strokeStyle='#8fa065';x.lineWidth=2*s;x.beginPath();x.moveTo(x1,gy-22*s);x.lineTo(x1-40*s,gy-120*s);x.stroke();x.fillStyle='#8fa065';x.fillText('ЛАЗЕРНАЯ ПОДСВЕТКА',x1-210*s,gy-130*s)}
+x.fillStyle='#d4a24c';x.beginPath();x.arc(q[0],q[1],7*s,0,7);x.fill();
+x.fillStyle='#efe8d8';x.font=(15*s)+'px Inter,Arial';x.fillText(mode?'Снаряд доводится до подсвеченной цели':'Снаряд падает по расчётной дуге, ветер сносит его',x0,28*s)}
+requestAnimationFrame(fr);
+})();
+</script>
+</body>
+</html>
